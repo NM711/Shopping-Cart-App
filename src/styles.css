@@ -1,0 +1,18 @@
+body {
+    background-color: #94BFA7;
+}
+
+li{
+    border-bottom: 1px solid #FFFF;
+}
+
+@media (min-width: 1024px){
+    li {
+        border-bottom: none;
+    } /*bottom text border wont appear on large screens*/
+}
+
+.itemsAddedDisplay{
+    border: 1px solid black;
+    border-radius: 5px;
+}

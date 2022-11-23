@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/output.css" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <title>Shopping Cart App</title>
+  </head>
+  <body>
+    <div id="gridCont" class="grid grid-cols-4">
+      <nav
+        class="p-3 text-white bg-navbar col-span-4 row-span-full shadow md:flex md:items-center md:justify-between"
+      >
+        <div class="flex justify-between items-center">
+          <span class="text-xl cursor-pointer">E-Shop</span>
+
+          <div class="block lg:hidden md:hidden">
+            <button
+              id="menuBtn"
+              class="flex items-center px-3 py-2 border rounded hover:bg-slate-500 hover:text-white hover:border-white"
+            >
+              <span class="text-2xl">
+                <ion-icon name="menu-outline"></ion-icon>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <ul
+          id="menu"
+          class="md:flex md:items-center transition-all ease-in duration-500 hidden"
+        >
+          <li class="mx-4 my-6 md:my-7">
+            <a href="#" class="text-xl hover:bg-slate-500 duration-200">
+              Deals
+            </a>
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl hover:bg-slate-500 duration-200">
+              About
+            </a>
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl hover:bg-slate-500 duration-200">
+              Contact
+            </a>
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a id="cartAnchor" href="#" class="text-xl hover:bg-slate-500 duration-200">
+              Cart
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="gridCont2" class="grid grid-cols-3 gap-3 my-5 mx-3">
+      <div
+        id="itemCont1"
+        class="md:col-span-1 col-span-3 row-span-1 shadow-2xl shadow-black"
+      >
+        <h1 class="text-center text-2xl bg-emerald-50">Lemon 3.00</h1>
+        <img
+          id="lemonItem"
+          src="./img/Lemon.jpg"
+          class="object-cover hover:cursor-pointer"
+        />
+      </div>
+
+      <div
+        id="itemCont2"
+        class="md:col-span-1 col-span-3 row-span-1 shadow-2xl shadow-black"
+      >
+        <h1 class="text-center text-2xl bg-emerald-50">Orange 2.50</h1>
+        <img
+          id="orangeItem"
+          src="./img/Orange.jpg"
+          class="object-cover hover:cursor-pointer"
+        />
+      </div>
+      <div
+        id="itemCont3"
+        class="md:col-span-1 col-span-3 row-span-1 shadow-2xl shadow-black"
+      >
+        <h1 class="text-center text-2xl bg-emerald-50">Grapes 5.00</h1>
+        <img
+          id="grapeItem"
+          src="./img/Grape.jpg"
+          class="object-cover hover:cursor-pointer"
+        />
+      </div>
+    </div>
+    <!--Lemon-->
+    <div id="modal1" class="hidden bg-black h-full bg-opacity-50 z-10 fixed flex top-0 justify-center items-center">
+        <div class="bg-white w-full h-2/3 mx-5">
+            <div id="modal1Head" class="flex w-full h-6 justify-end">
+          <span class="text-2xl exitIcon">
+            <ion-icon
+              name="close-outline"
+              class="hover:cursor-pointer"
+            ></ion-icon>
+          </span>
+        </div>
+        <h1 class="text-2xl text-center justify-center">Lemon Price: 3.00</h1>
+        <div class="m-1 flex justify-between h-3/5">
+            <div class="flex w-full">
+            <img src="./img/Lemon.jpg" class="object-cover flex h-3/3 w-full ">
+             </div>
+             <p class="text-sm m-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est rem autem illum veniam rerum deleniti accusamus tempore incidunt, veritatis minus? Officia dolorem ea culpa nemo?</p>
+             </div>
+             <!--Add to Shopping Cart Buttons-->
+             <div class="flex justify-center">
+              <div class="my-1 mx-3">
+                <span class="text-2xl hover:bg-yellow-100 rounded">
+                  <ion-icon name="remove-outline" class="minusSymbol hover:cursor-pointer"></ion-icon>
+                </span>
+              </div>
+                <button type="button" class="addToCart1 flex bg-blue-500 py-1 px-3 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
+                    Add to Cart
+                 </button>
+                 <div class="my-1 mx-3">
+                  <span class="text-2xl hover:bg-yellow-100 rounded">
+                 <ion-icon name="add-outline" class="plusSymbol hover:cursor-pointer"></ion-icon>
+                </span>
+                </div>
+             </div>
+             <!--Number of Items Added Display-->
+             <div class="flex justify-center items-center">
+                  <h1 id="lemonAddedDisplay" class="itemsAddedDisplay1 text-center text-xl my-1 bg-slate-300">0</h1>
+             </div>
+        </div>
+      </div>
+      <!--Orange-->
+      <div id="modal2" class="hidden bg-black h-full bg-opacity-50 z-10 fixed flex top-0 justify-center items-center">
+        <div class="bg-white w-full h-2/3 mx-5">
+            <div id="modal1Head2" class="flex w-full h-6 justify-end">
+          <span class="text-2xl exitIcon">
+            <ion-icon
+              name="close-outline"
+              class="hover:cursor-pointer"
+            ></ion-icon>
+          </span>
+        </div>
+        <h1 class="text-2xl text-center justify-center">Orange Price 2.50</h1>
+        <div class="m-1 flex justify-between h-3/5">
+            <div class="flex w-full">
+            <img src="./img/Orange.jpg" class="object-cover flex h-3/3 w-full ">
+             </div>
+             <p class="text-sm m-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+               Est rem autem illum veniam rerum deleniti accusamus tempore incidunt, 
+               veritatis minus? Officia dolorem ea culpa nemo? Lorem ipsum dolor sit amet 
+               consectetur adipisicing elit. Perspiciatis, eius error?</p>
+             </div>
+             <!--Add to Shopping Cart Buttons-->
+             <div class="flex justify-center">
+              <div class="my-1 mx-3">
+                <span class="text-2xl hover:bg-yellow-100 rounded">
+                  <ion-icon name="remove-outline" class="minusSymbol hover:cursor-pointer"></ion-icon>
+                </span>
+              </div>
+                <button type="button" class="addToCart2 flex bg-blue-500 py-1 px-3 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
+                    Add to Cart
+                 </button>
+                 <div class="my-1 mx-3">
+                  <span class="text-2xl hover:bg-yellow-100 rounded">
+                 <ion-icon name="add-outline" class="plusSymbol hover:cursor-pointer"></ion-icon>
+                </span>
+                </div>
+             </div>
+             <!--Number of Items Added Display-->
+             <div class="flex justify-center items-center">
+                  <h1 class="itemsAddedDisplay2 text-center text-xl my-1 bg-slate-300">0</h1>
+             </div>
+        </div>
+      </div>
+      <!--Grapes-->
+      <div id="modal3" class="hidden bg-black h-full bg-opacity-50 z-10 fixed flex top-0 justify-center items-center">
+        <div class="bg-white w-full h-2/3 mx-5">
+            <div id="modal1Head3" class="flex w-full h-6 justify-end">
+          <span class="text-2xl exitIcon">
+            <ion-icon
+              name="close-outline"
+              class="hover:cursor-pointer"
+            ></ion-icon>
+          </span>
+        </div>
+        <h1 class="text-2xl text-center justify-center">Orange Price 2.50</h1>
+        <div class="m-1 flex justify-between h-3/5">
+            <div class="flex w-full">
+            <img src="./img/Grape.jpg" class="object-cover flex h-3/3 w-full ">
+             </div>
+             <p class="text-sm m-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+               Est rem autem illum veniam rerum deleniti accusamus tempore incidunt, 
+               veritatis minus? Officia dolorem ea culpa nemo? Lorem ipsum dolor sit amet 
+               consectetur adipisicing elit. Perspiciatis, eius error? Iste nulla libero ducimus voluptas omnis 
+               vel natus voluptatibus dolorum, tenetur, et sapiente fugiat. ste nulla libero ducimus voluptas omnis 
+               vel natus voluptatibus dolorum, tenetur, et sapiente fugiat. Lorem ipsum dolor sit amet,
+               consectetur adipisicing elit. Sequi recusandae possimus excepturi quos, perspiciatis repellat placeat autem, 
+               magnam obcaecati architecto maxime, fugit ea id laudantium?</p>
+             </div>
+             <!--Add to Shopping Cart Buttons-->
+             <div class="flex justify-center">
+              <div class="my-1 mx-3">
+                <span class="text-2xl hover:bg-yellow-100 rounded">
+                  <ion-icon name="remove-outline" class="minusSymbol hover:cursor-pointer"></ion-icon>
+                </span>
+              </div>
+                <button type="button" class="addToCart3 flex bg-blue-500 py-1 px-3 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
+                    Add to Cart
+                 </button>
+                 <div class="my-1 mx-3">
+                  <span class="text-2xl hover:bg-yellow-100 rounded">
+                 <ion-icon name="add-outline" class="plusSymbol hover:cursor-pointer"></ion-icon>
+                </span>
+                </div>
+             </div>
+             <!--Number of Items Added Display-->
+             <div class="flex justify-center items-center">
+                  <h1 id="orangeAddedDisplay" class="itemsAddedDisplay3 text-center text-xl my-1 bg-slate-300">0</h1>
+             </div>
+        </div>
+      </div>
+      <!--Shopping Cart-->
+      <div id="cartModal" class="hidden bg-black h-full w-full bg-opacity-50 z-10 fixed flex top-0 justify-center items-center">
+        <div class="bg-white w-full h-5/6 mx-5">
+            <div class="flex w-full h-6 justify-end">
+          <span class="text-2xl exitIcon">
+            <ion-icon
+              name="close-outline"
+              class="hover:cursor-pointer"
+            ></ion-icon>
+          </span>
+        </div>
+        <h1 class="text-2xl text-center justify-center">Check Out</h1>
+        <div class="m-1 flex justify-center h-3/5">
+             <h1 class="text-2xl m-5 text-center">Products In Cart:</h1>
+             </div>
+             <div class="flex justify-center items-center">
+              <ul id="addedProductList" class="text-lg justify-center items-center">
+
+              </ul>
+             </div>
+
+             <div class="flex justify-center items-center">
+                  <h1 class="text-2xl">Total:</h1>
+                  <h1 id="totalAmount" class="text-xl mx-1"></h1>
+            </div>
+             <div class="flex justify-center">
+                <button id="checkOutBtn" type="button" class="checkOut mx-1 flex bg-blue-500 py-1 px-3 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
+                    Check Out
+                 </button> 
+                 <button type="button" class="removeAll mx-1  flex bg-red-500 py-1 px-3 hover:bg-red-700 text-white font-bold border border-red-700 rounded">
+                  Remove All
+               </button>
+             </div>
+        </div>
+      </div>
+
+    <script src="my.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
